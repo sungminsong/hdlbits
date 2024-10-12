@@ -1,0 +1,58 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000019ad44b2ce0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /OUTPUT 1 "z";
+o0000019ad44e7248 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000019ad449e520 .functor XOR 1, o0000019ad44e7248, L_0000019ad44e3b80, C4<0>, C4<0>;
+L_0000019ad44b3340 .functor AND 1, o0000019ad44e7248, L_0000019ad44e3c20, C4<1>, C4<1>;
+L_0000019ad44b3780 .functor OR 1, o0000019ad44e7248, L_0000019ad44e3f40, C4<0>, C4<0>;
+v0000019ad44b3560_0 .net *"_ivl_1", 0 0, L_0000019ad44e3b80;  1 drivers
+v0000019ad449e480_0 .net *"_ivl_5", 0 0, L_0000019ad44e3c20;  1 drivers
+v0000019ad44b2e70_0 .net *"_ivl_9", 0 0, L_0000019ad44e3f40;  1 drivers
+v0000019ad44b2f10_0 .net "a", 0 0, L_0000019ad449e520;  1 drivers
+o0000019ad44e7098 .functor BUFZ 1, C4<z>; HiZ drive
+v0000019ad44b2fb0_0 .net "a0", 0 0, o0000019ad44e7098;  0 drivers
+o0000019ad44e70c8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000019ad44b3050_0 .net "a1", 0 0, o0000019ad44e70c8;  0 drivers
+o0000019ad44e70f8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000019ad44e3090_0 .net "a2", 0 0, o0000019ad44e70f8;  0 drivers
+v0000019ad44e3130_0 .net "b", 0 0, L_0000019ad44b3340;  1 drivers
+v0000019ad44e31d0_0 .net "c", 0 0, L_0000019ad44b3780;  1 drivers
+o0000019ad44e7188 .functor BUFZ 1, C4<z>; HiZ drive
+v0000019ad44e3270_0 .net "clk", 0 0, o0000019ad44e7188;  0 drivers
+v0000019ad44e3310_0 .var "q0", 0 0;
+v0000019ad44e33b0_0 .var "q1", 0 0;
+v0000019ad44e3450_0 .var "q2", 0 0;
+v0000019ad44e43a0_0 .net "x", 0 0, o0000019ad44e7248;  0 drivers
+o0000019ad44e7278 .functor BUFZ 1, C4<z>; HiZ drive
+v0000019ad44e3ae0_0 .net "z", 0 0, o0000019ad44e7278;  0 drivers
+E_0000019ad449c6d0 .event posedge, v0000019ad44e3270_0;
+L_0000019ad44e3b80 .reduce/nor v0000019ad44e3310_0;
+L_0000019ad44e3c20 .reduce/nor v0000019ad44e33b0_0;
+L_0000019ad44e3f40 .reduce/nor v0000019ad44e3450_0;
+    .scope S_0000019ad44b2ce0;
+T_0 ;
+    %wait E_0000019ad449c6d0;
+    %load/vec4 v0000019ad44b2fb0_0;
+    %assign/vec4 v0000019ad44e3310_0, 0;
+    %load/vec4 v0000019ad44b3050_0;
+    %assign/vec4 v0000019ad44e33b0_0, 0;
+    %load/vec4 v0000019ad44e3090_0;
+    %assign/vec4 v0000019ad44e3450_0, 0;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "exams_2014_q4a.v";
